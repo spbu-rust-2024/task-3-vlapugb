@@ -1,0 +1,15 @@
+pub mod arifmetic_geometric_mean;
+pub mod arifmetic_mean;
+pub mod coefficient_variation;
+pub mod dispertion;
+pub mod geometric_mean;
+pub mod kolmogorov_smirnov;
+pub mod linear_coefficient_variation;
+pub mod linear_deviation;
+pub mod median;
+pub mod mode;
+pub mod modified_arifmetic_geometric_mean;
+pub mod power_mean;
+pub mod standart_deviation;
+pub mod trimmed_mean;
+pub mod winsorized_mean;
