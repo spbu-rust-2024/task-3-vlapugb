@@ -15,8 +15,8 @@ pub fn modified_arifmetic_geometric_mean(vec: &Vec<f64>, eps: &f64) -> [f64; 3] 
     let g_mean = geometric_mean(&vec);
     let z_mean = 0.0;
     let new_a;
-    let new_b;
+    let new_g;
     let new_z;
-    [new_a, new_b, new_z] = recursive_ag1(eps, &a_mean, &g_mean, &z_mean);
-    return [new_a, new_b, new_z];
+    [new_a, new_g, new_z] = recursive_ag1(eps, &a_mean, &g_mean, &z_mean);
+    return [new_a, new_g, new_z];
 }

@@ -1,16 +1,10 @@
 use clap::{Arg, Command};
-use modules::{
-    arifmetic_geometric_mean::arifmetic_geometric_mean, arifmetic_mean::arifmetic_mean,
-    coefficient_variation::coefficient_variations, dispertion::dispertion,
-    geometric_mean::geometric_mean, kolmogorov_smirnov::kolmogorov_smirnov,
-    linear_coefficient_variation::linear_coefficient_variations,
-    linear_deviation::linear_deviation, median::median, mode::mode,
-    modified_arifmetic_geometric_mean::modified_arifmetic_geometric_mean, power_mean::power_mean,
-    trimmed_mean::trimmed_mean, winsorized_mean::winsorized_mean,
-};
 use std::io;
+
 extern crate clap;
+
 mod modules;
+use modules::calculations::*;
 
 fn main() {
     let matches = Command::new("Mean Calculator")
