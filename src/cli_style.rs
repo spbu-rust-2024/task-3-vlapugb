@@ -63,16 +63,23 @@ pub struct Args {
     pub tr: Option<u8>,
 }
 
-pub fn print_info(vec: Vec<f64>) {
-    let args = Args::parse();
+pub fn print_info(vec: Vec<f64>, args: &Args) -> Vec<f64> {
+    let mut info: Vec<f64> = Vec::new();
+
     if args.a {
-        println!("Arifmetic mean: {:.3}\n", arifmetic_mean(&vec));
+        let am = arifmetic_mean(&vec);
+        println!("Arifmetic mean: {:.3}\n", am);
+        info.push(am);
     }
     if args.g {
-        println!("Geometric mean: {:.3}\n", geometric_mean(&vec));
+        let g = geometric_mean(&vec);
+        println!("Geometric mean: {:.3}\n", g);
+        info.push(g);
     }
     if args.p {
-        println!("Powered: {:.3}\n", power_mean(&vec, &5));
+        let p = power_mean(&vec, &5);
+        println!("Powered: {:.3}\n", p);
+        info.push(p);
     }
     if let Some(ag_val) = args.ag {
         if ag_val > 1.0 || ag_val < 0.0 {
@@ -83,24 +90,35 @@ pub fn print_info(vec: Vec<f64>) {
             ag_val,
             arifmetic_geometric_mean(&vec, &ag_val)[0],
             ag_val,
-            arifmetic_geometric_mean(&vec, &args.ag.unwrap_or(0.0))[1]
-        )
+            arifmetic_geometric_mean(&vec, &ag_val)[1]
+        );
+        info.push(arifmetic_geometric_mean(&vec, &ag_val)[0]);
     }
 
     if args.median {
-        println!("Median: {:.3}\n", median(&vec));
+        let median = median(&vec);
+        println!("Median: {:.3}\n", median);
+        info.push(median);
     }
     if args.mode {
-        println!("Mode: {:.3}\n", mode(&vec));
+        let mode = mode(&vec);
+        println!("Mode: {:.3}\n", mode);
+        info.push(mode);
     }
     if args.cv {
-        println!("Cv: {:.3}\n", coefficient_variations(&vec));
+        let cv = coefficient_variations(&vec);
+        println!("Cv: {:.3}\n", cv);
+        info.push(cv);
     }
     if args.lcv {
-        println!("Linear Cv: {:.3}\n", linear_coefficient_variations(&vec));
+        let lcv = linear_coefficient_variations(&vec);
+        println!("Linear Cv: {:.3}\n", lcv);
+        info.push(lcv);
     }
     if args.dsp {
-        println!("Dispertion: {:.3}\n", dispertion(&vec));
+        let dsp = dispertion(&vec);
+        println!("Dispertion: {:.3}\n", dsp);
+        info.push(dsp);
     }
     if let Some(ag_val) = args.klg {
         if ag_val > 1.0 || ag_val < 0.0 {
@@ -113,12 +131,17 @@ pub fn print_info(vec: Vec<f64>) {
             let precition = count_decimal_places(ag_val);
             println!("Kolmogorov mean with eps: {:.1$}\n", ks, precition);
         }
+        info.push(ks);
     }
     if args.dv {
-        println!("Deviation: {:.3}\n", standart_deviation(&vec));
+        let dv = standart_deviation(&vec);
+        println!("Deviation: {:.3}\n", dv);
+        info.push(dv);
     }
     if args.ldv {
-        println!("Deviation: {:.3}\n", linear_deviation(&vec));
+        let ldv = linear_deviation(&vec);
+        println!("Deviation: {:.3}\n", ldv);
+        info.push(ldv);
     }
     if let Some(ag_val) = args.mag {
         if ag_val > 1.0 || ag_val < 0.0 {
@@ -130,17 +153,23 @@ pub fn print_info(vec: Vec<f64>) {
             "Modified arifmetic-geometric mean: A(eps) = {:.pr$}, B(eps) = {:.pr$}, Z(eps) = {:.pr$}\n",
             tmp_tuple[0], tmp_tuple[1], tmp_tuple[2], pr = precision
         );
+        info.push(tmp_tuple[0]);
     }
     if let Some(ag_val) = args.wn {
+        let wn = winsorized_mean(&vec, ag_val);
         if ag_val > 100 {
             panic!("Incorrect winsorized argument. Check --help!");
         }
-        println!("Winsorized mean: {:.3}\n", winsorized_mean(&vec, ag_val));
+        println!("Winsorized mean: {:.3}\n", wn);
+        info.push(wn);
     }
     if let Some(ag_val) = args.tr {
+        let tr = trimmed_mean(&vec, ag_val);
         if ag_val > 100 {
             panic!("Incorrect trimmed argument. Check --help!");
         }
-        println!("Trimmed mean: {:.3}\n", trimmed_mean(&vec, ag_val));
+        println!("Trimmed mean: {:.3}\n", tr);
+        info.push(tr);
     }
+    info
 }
