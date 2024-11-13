@@ -1,5 +1,3 @@
-use std::collections::HashMap;
-
 use crate::modules::{calculations::*, standart_deviation::standart_deviation};
 
 fn count_decimal_places(epsilon: f64) -> usize {
