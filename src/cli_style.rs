@@ -63,9 +63,8 @@ pub struct Args {
     pub tr: Option<u8>,
 }
 
-pub fn print_info(vec: Vec<f64>) -> Vec<f64> {
+pub fn print_info(vec: Vec<f64>, args: &Args) -> Vec<f64> {
     let mut info: Vec<f64> = Vec::new();
-    let args = Args::parse();
 
     if args.a {
         let am = arifmetic_mean(&vec);

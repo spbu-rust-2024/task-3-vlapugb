@@ -7,6 +7,9 @@ use std::fs::File;
 
 pub fn read_csv(file_path: &str) -> Result<(), Box<dyn Error>> {
     let file = File::open(file_path)?;
+    if !file_path.ends_with(".csv") {
+        return Err("Type of file must be .csv to read it!".into());
+    }
     let mut rdr = csv::ReaderBuilder::new()
         .has_headers(false) // No headers in the file
         .delimiter(b';')
@@ -31,6 +34,9 @@ where
     T: IntoIterator,
     T::Item: Serialize,
 {
+    if !file_path.ends_with(".csv") {
+        return Err("Type of file must be .csv to write in!".into());
+    }
     let file = File::create(file_path)?;
     let mut wtr = WriterBuilder::new().delimiter(b';').from_writer(file);
 

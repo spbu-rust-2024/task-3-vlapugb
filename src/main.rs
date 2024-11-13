@@ -1,11 +1,13 @@
 mod cli_style;
 mod csv_format;
-use crate::cli_style::print_info;
+use crate::cli_style::{print_info, Args};
 use crate::csv_format::{read_csv, write_csv};
+use clap::Parser;
 use std::io;
 mod modules;
 
 fn main() {
+    let args = Args::parse();
     let mut buf = String::new();
     let mut filep = String::new();
     println!("Write your .csv file-name: ");
@@ -13,8 +15,9 @@ fn main() {
         .read_line(&mut filep)
         .expect("Error reading input!");
 
-    println!("Enter your array elements (To stop type this: END): ");
-    while buf != "END" {
+    loop {
+        buf.clear();
+        println!("Enter your array elements (To stop type this: END): ");
         io::stdin()
             .read_line(&mut buf)
             .expect("Error reading input!");
@@ -31,7 +34,7 @@ fn main() {
             .map(|s| s.parse().expect("Please enter valid numbers"))
             .collect();
 
-        let info = print_info(vec);
+        let info = print_info(vec, &args);
 
         if let Err(e) = write_csv(&filep, info) {
             println!("Operation failed: {}", e);
@@ -42,7 +45,7 @@ fn main() {
         if let Err(e) = read_csv(&filep) {
             println!("Operation failed: {}", e);
         } else {
-            println!("Operation succeeded. Writed message to csv.");
+            println!("Operation succeeded. Writed message to csv.\n");
         }
     }
 }
