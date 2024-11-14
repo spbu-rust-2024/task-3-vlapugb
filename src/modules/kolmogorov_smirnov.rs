@@ -34,6 +34,9 @@ fn newton_method(y: f64, eps: f64) -> f64 {
 }
 
 pub fn kolmogorov_smirnov(vec: &Vec<f64>, eps: f64) -> f64 {
+    if vec.len() == 0 || (eps > 1.0 || eps < 0.0) {
+        panic!("Can't solve kolmogorov mean!");
+    }
     let x = vec
         .iter()
         .map(|&x| E.powf(x) + 2.0 * x * x + x + 5.0)

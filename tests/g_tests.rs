@@ -28,6 +28,13 @@ mod tests {
     #[test]
     #[should_panic]
     fn test_geometric_mean_null_elements() {
+        let test_vec: Vec<f64> = Vec::from([]);
+        let result = geometric_mean(&test_vec);
+        assert_eq!(result, 0.0);
+    }
+    #[test]
+    #[should_panic]
+    fn test_geometric_mean_negative_sqrt() {
         let test_vec: Vec<f64> = Vec::from([-1.0, 1.0]);
         let result = geometric_mean(&test_vec);
         assert_eq!(result, 0.0);

@@ -14,13 +14,13 @@ mod tests {
     }
     #[test]
     #[should_panic]
-    fn test_modified_arifmetic_geometric_mean_invalid_args_1() {
+    fn test_modified_arifmetic_geometric_mean_invalid_accuracy_1() {
         let test_vec: Vec<f64> = Vec::from([1.0, 2.0, 3.0, 4.0, 5.0]);
         let result = modified_arifmetic_geometric_mean(&test_vec, &1.1);
     }
     #[test]
     #[should_panic]
-    fn test_modified_arifmetic_geometric_mean_invalid_args_2() {
+    fn test_modified_arifmetic_geometric_mean_invalid_accuracy_2() {
         let test_vec: Vec<f64> = Vec::from([1.0, 2.0, 3.0, 4.0, 5.0]);
         let result = modified_arifmetic_geometric_mean(&test_vec, &-0.1);
     }

@@ -20,6 +20,12 @@ mod tests {
     #[should_panic]
     fn test_power_mean_null_elements() {
         let test_vec: Vec<f64> = Vec::from([]);
-        let result = power_mean(&test_vec, &10);
+        let result = power_mean(&test_vec, &4);
+    }
+    #[test]
+    #[should_panic]
+    fn test_power_mean_invalid_power() {
+        let test_vec: Vec<f64> = Vec::from([]);
+        let result = power_mean(&test_vec, &6);
     }
 }

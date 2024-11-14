@@ -20,7 +20,14 @@ mod tests {
     #[should_panic]
     fn test_trimmed_mean_null_elements() {
         let test_vec: Vec<f64> = Vec::from([]);
-        let result = trimmed_mean(&test_vec, 100);
+        let result = trimmed_mean(&test_vec, 99);
+        assert_eq!(result, 0.0);
+    }
+    #[test]
+    #[should_panic]
+    fn test_trimmed_mean_invalid_k_argument() {
+        let test_vec: Vec<f64> = Vec::from([2.0, 2.0, 3.0, 4.0]);
+        let result = trimmed_mean(&test_vec, 250);
         assert_eq!(result, 0.0);
     }
 }

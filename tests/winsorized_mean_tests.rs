@@ -23,4 +23,11 @@ mod tests {
         let result = winsorized_mean(&test_vec, 100);
         assert_eq!(result, 0.0);
     }
+    #[test]
+    #[should_panic]
+    fn test_winsorized_mean_invalid_k_argument() {
+        let test_vec: Vec<f64> = Vec::from([]);
+        let result = winsorized_mean(&test_vec, 250);
+        assert_eq!(result, 0.0);
+    }
 }

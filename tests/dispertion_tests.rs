@@ -16,7 +16,7 @@ mod tests {
     #[test]
     #[should_panic]
     fn test_dispertion_null_elements() {
-        let test_vec: Vec<f64> = Vec::from([1.0]);
+        let test_vec: Vec<f64> = Vec::from([]);
         let result = dispertion(&test_vec);
         assert_eq!(result, 0.0);
     }
