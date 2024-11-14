@@ -20,8 +20,11 @@ pub struct Args {
     pub a: bool,
     #[arg(long = "g", help = "Calculates geometric mean\n")]
     pub g: bool,
-    #[arg(long = "p", help = "Calculates power mean\n")]
-    pub p: bool,
+    #[arg(
+        long = "p",
+        help = "Calculates power mean. \nRequired parameter: 0 < power < 5\n"
+    )]
+    pub p: Option<u16>,
     #[arg(
         long = "ag",
         help = "Calculates arifmetic-geometric mean. \nRequired parameter: 0.0 < accuracy < 1.0\n"
@@ -76,8 +79,11 @@ pub fn print_info(vec: Vec<f64>, args: &Args) -> Vec<f64> {
         println!("Geometric mean: {:.3}\n", g);
         info.push(g);
     }
-    if args.p {
-        let p = power_mean(&vec, &5);
+    if let Some(ag_val) = args.p {
+        if ag_val >= 5 {
+            panic!("Incorrect power!");
+        }
+        let p = power_mean(&vec, &ag_val);
         println!("Powered: {:.3}\n", p);
         info.push(p);
     }

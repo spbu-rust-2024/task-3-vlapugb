@@ -2,6 +2,9 @@ use ordered_float::OrderedFloat;
 use std::collections::HashMap;
 
 pub fn mode(vec: &Vec<f64>) -> f64 {
+    if vec.len() == 0 {
+        panic!("Can't solve mode!");
+    }
     let mut map = HashMap::new();
 
     for &num in vec.iter() {

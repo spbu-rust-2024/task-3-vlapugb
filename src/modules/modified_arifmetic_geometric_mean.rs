@@ -8,14 +8,14 @@ fn recursive_ag1(eps: &f64, a_mean: &f64, g_mean: &f64, z_mean: &f64, i: i32) ->
     let new_g_mean = z_mean + ((a_mean - z_mean) * (g_mean - z_mean)).sqrt();
     let new_z_mean = z_mean - ((a_mean - z_mean) * (g_mean - z_mean)).sqrt();
     let new_i = i + 1;
-    println!(
-        "A{}: {}, B{}: {}, Z{}: {}",
-        new_i, a_mean, new_i, g_mean, new_i, z_mean
-    );
+
     recursive_ag1(eps, &new_a_mean, &new_g_mean, &new_z_mean, new_i)
 }
 
 pub fn modified_arifmetic_geometric_mean(vec: &Vec<f64>, eps: &f64) -> [f64; 3] {
+    if *eps > 1.0 || *eps < 0.0 {
+        panic!("Can't solve modified arifmetic-geometric mean!");
+    }
     let a_mean = arifmetic_mean(&vec);
     let g_mean = geometric_mean(&vec);
     let z_mean = 0.0;

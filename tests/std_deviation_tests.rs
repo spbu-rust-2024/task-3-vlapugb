@@ -16,4 +16,10 @@ mod tests {
             (expected * 1e10).round() / 1e10
         )
     }
+    #[test]
+    #[should_panic]
+    fn test_standart_deviation_null_elements() {
+        let test_vec: Vec<f64> = Vec::from([]);
+        let result = standart_deviation(&test_vec);
+    }
 }

@@ -23,7 +23,7 @@ mod tests {
     }
     #[test]
     #[should_panic]
-    fn test_arifmetic_mean_null_elements() {
+    fn test_arifmetic_geometric_mean_null_elements() {
         let test_vec: Vec<f64> = Vec::from([]);
         let result = arifmetic_geometric_mean(&test_vec, &0.01);
     }

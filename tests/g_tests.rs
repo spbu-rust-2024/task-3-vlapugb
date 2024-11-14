@@ -20,14 +20,14 @@ mod tests {
     }
 
     #[test]
-    fn test_arifmetic_mean_with_null() {
+    fn test_geometric_mean_with_null() {
         let test_vec: Vec<f64> = Vec::from([0.0, 1.0, 41234.2]);
         let result = geometric_mean(&test_vec);
         assert_eq!(result, 0.0);
     }
     #[test]
     #[should_panic]
-    fn test_arifmetic_mean_null_elements() {
+    fn test_geometric_mean_null_elements() {
         let test_vec: Vec<f64> = Vec::from([-1.0, 1.0]);
         let result = geometric_mean(&test_vec);
         assert_eq!(result, 0.0);

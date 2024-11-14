@@ -1,6 +1,9 @@
 use super::arifmetic_mean::arifmetic_mean;
 
 pub fn dispertion(vec: &Vec<f64>) -> f64 {
+    if vec.len() < 2 {
+        panic!("Can't solve dispertion!");
+    }
     let a_mean = arifmetic_mean(vec);
     let dispertion = (vec
         .iter()
