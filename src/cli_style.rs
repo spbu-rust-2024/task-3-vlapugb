@@ -82,15 +82,14 @@ pub fn print_info(vec: Vec<f64>, args: &Args) -> Vec<f64> {
         info.push(p);
     }
     if let Some(ag_val) = args.ag {
-        if ag_val > 1.0 || ag_val < 0.0 {
-            panic!("Incorrect arifmetic-geometric argument. Check --help!");
-        }
+        let precision = count_decimal_places(ag_val) + 1;
         println!(
-            "A{}: {:.3}, B{}: {:.3}\n",
+            "A(eps = {}): {:.pr$}, B(eps = {}): {:.pr$}\n",
             ag_val,
             arifmetic_geometric_mean(&vec, &ag_val)[0],
             ag_val,
-            arifmetic_geometric_mean(&vec, &ag_val)[1]
+            arifmetic_geometric_mean(&vec, &ag_val)[1],
+            pr = precision
         );
         info.push(arifmetic_geometric_mean(&vec, &ag_val)[0]);
     }
