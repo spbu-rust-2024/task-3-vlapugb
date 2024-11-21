@@ -14,7 +14,7 @@ pub fn median(vec: &Vec<f64>) -> f64 {
 #[cfg(test)]
 #[allow(unused_variables)]
 mod tests {
-    use arrayp::modules::calculations::median;
+    use super::*;
     use rstest::rstest;
     #[rstest]
     #[case(&[1.0, 2.0, 3.0, 4.0, 5.0], 3.0)]

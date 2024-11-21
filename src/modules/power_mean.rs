@@ -7,11 +7,10 @@ pub fn power_mean(vec: &Vec<f64>, n: &u16) -> f64 {
     return (powered / vec.len() as f64).powf(1.0 / *n as f64);
 }
 
-
 #[cfg(test)]
 #[allow(unused_variables)]
 mod tests {
-    use arrayp::modules::calculations::power_mean;
+    use super::*;
     use rstest::rstest;
     #[rstest]
     #[case(&[2.0, 2.0, 2.0, 2.0, 2.0], 2.0, 2)]
@@ -26,6 +25,7 @@ mod tests {
         );
     }
 
+
     #[test]
     #[should_panic]
     fn test_power_mean_null_elements() {
@@ -39,4 +39,3 @@ mod tests {
         let result = power_mean(&test_vec, &6);
     }
 }
-

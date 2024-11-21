@@ -11,7 +11,7 @@ pub fn arifmetic_mean(vec: &Vec<f64>) -> f64 {
 #[cfg(test)]
 #[allow(unused_variables)]
 mod tests {
-    use arrayp::modules::calculations::arifmetic_mean;
+    use super::*;
     use rstest::rstest;
     #[rstest]
     #[case(&[1.0, 2.0, 3.0], 2.0)]

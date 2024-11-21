@@ -23,11 +23,10 @@ pub fn mode(vec: &Vec<f64>) -> f64 {
     mode
 }
 
-
 #[cfg(test)]
 #[allow(unused_variables)]
 mod tests {
-    use arrayp::modules::calculations::mode;
+    use super::*;
     use rstest::rstest;
     #[rstest]
     #[case(&[1.0, 2.0, 2.0, 3.0, 4.0], 2.0)]
