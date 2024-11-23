@@ -1,6 +1,6 @@
 use super::arifmetic_mean::arifmetic_mean;
 
-pub fn standart_deviation(vec: &Vec<f64>) -> f64 {
+pub fn standart_deviation(vec: &[f64]) -> f64 {
     if vec.is_empty() {
         panic!("Can't solve standart deviation!");
     }

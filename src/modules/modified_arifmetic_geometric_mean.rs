@@ -12,7 +12,7 @@ fn recursive_ag1(eps: &f64, a_mean: &f64, g_mean: &f64, z_mean: &f64, i: i32) ->
     recursive_ag1(eps, &new_a_mean, &new_g_mean, &new_z_mean, new_i)
 }
 
-pub fn modified_arifmetic_geometric_mean(vec: &Vec<f64>, eps: &f64) -> [f64; 3] {
+pub fn modified_arifmetic_geometric_mean(vec: &[f64], eps: &f64) -> [f64; 3] {
     if *eps > 1.0 || *eps < 0.0 {
         panic!("Can't solve modified arifmetic-geometric mean!");
     }

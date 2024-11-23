@@ -33,7 +33,7 @@ fn newton_method(y: f64, eps: f64) -> f64 {
     next_x
 }
 
-pub fn kolmogorov_smirnov(vec: &Vec<f64>, eps: f64) -> f64 {
+pub fn kolmogorov_smirnov(vec:&[f64], eps: f64) -> f64 {
     if vec.is_empty() || !(0.0..=1.0).contains(&eps) {
         panic!("Can't solve kolmogorov mean!");
     }

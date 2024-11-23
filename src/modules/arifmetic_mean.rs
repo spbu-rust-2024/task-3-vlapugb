@@ -1,6 +1,6 @@
 use core::panic;
 
-pub fn arifmetic_mean(vec: &Vec<f64>) -> f64 {
+pub fn arifmetic_mean(vec: &[f64]) -> f64 {
     if vec.is_empty() {
         panic!("Zero elements vector! Can't solve arifmetic mean!");
     }

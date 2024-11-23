@@ -11,7 +11,7 @@ fn recursive_ag(eps: f64, a_mean: f64, g_mean: f64, i: &i32) -> [f64; 2] {
     recursive_ag(eps, new_a_mean, new_g_mean, &new_i)
 }
 
-pub fn arifmetic_geometric_mean(vec: &Vec<f64>, eps: &f64) -> [f64; 2] {
+pub fn arifmetic_geometric_mean(vec: &[f64], eps: &f64) -> [f64; 2] {
     if vec.is_empty() {
         panic!("Zero elements vector! Can't solve arifmetic-geometric mean!");
     }

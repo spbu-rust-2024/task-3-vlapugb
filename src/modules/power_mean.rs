@@ -1,4 +1,4 @@
-pub fn power_mean(vec: &Vec<f64>, n: &u16) -> f64 {
+pub fn power_mean(vec: &[f64], n: &u16) -> f64 {
     if vec.is_empty() {
         panic!("Can't solve powered mean");
     }
