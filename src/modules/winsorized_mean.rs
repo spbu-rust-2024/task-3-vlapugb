@@ -6,8 +6,8 @@ fn replace(vec: &mut Vec<f64>, i: usize, k: u8, value: f64) {
     }
 }
 
-pub fn winsorized_mean(vec: &Vec<f64>, k: u8) -> f64 {
-    let mut replace_vec = vec.clone();
+pub fn winsorized_mean(vec: &[f64], k: u8) -> f64 {
+    let mut replace_vec = vec.to_owned();
     replace_vec.sort_by(|a, b| a.partial_cmp(b).unwrap());
 
     let elements_to_replace = replace_vec.len() * k as usize / 100;

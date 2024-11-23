@@ -1,8 +1,8 @@
-pub fn median(vec: &Vec<f64>) -> f64 {
+pub fn median(vec: &[f64]) -> f64 {
     if vec.is_empty() {
         panic!("Can't solve median!");
     }
-    let mut c_vec = vec.clone();
+    let mut c_vec =  vec.to_owned();
     c_vec.sort_by(|a, b| a.partial_cmp(b).unwrap());
     if c_vec.len() % 2 != 0 {
         c_vec[c_vec.len() / 2]
