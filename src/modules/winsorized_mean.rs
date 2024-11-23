@@ -1,6 +1,6 @@
 use super::arifmetic_mean::arifmetic_mean;
 
-fn replace(vec: &mut Vec<f64>, i: usize, k: u8, value: f64) {
+fn replace(vec: &mut [f64], i: usize, k: u8, value: f64) {
     if i + k as usize <= vec.len() {
         vec[i..i + k as usize].iter_mut().for_each(|x| *x = value);
     }
