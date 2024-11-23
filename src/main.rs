@@ -29,7 +29,6 @@ fn main() {
         }
 
         let vec: Vec<f64> = buf
-            .trim()
             .split_whitespace()
             .map(|s| s.parse().expect("Please enter valid numbers"))
             .collect();

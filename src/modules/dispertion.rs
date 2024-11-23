@@ -12,5 +12,5 @@ pub fn dispertion(vec: &Vec<f64>) -> f64 {
         / (vec.len() as f64 - 1.0))
         .sqrt();
 
-    return dispertion;
+    dispertion
 }

@@ -126,7 +126,7 @@ pub fn print_info(vec: Vec<f64>, args: &Args) -> Vec<f64> {
         info.push(dsp);
     }
     if let Some(ag_val) = args.klg {
-        if ag_val > 1.0 || ag_val < 0.0 {
+        if !(0.0..=1.0).contains(&ag_val) {
             panic!("Incorrect Kalmogorov-Smirnov argument. Check --help!");
         }
         let ks = kolmogorov_smirnov(&vec, ag_val);
@@ -149,7 +149,7 @@ pub fn print_info(vec: Vec<f64>, args: &Args) -> Vec<f64> {
         info.push(ldv);
     }
     if let Some(ag_val) = args.mag {
-        if ag_val > 1.0 || ag_val < 0.0 {
+        if !(0.0..=1.0).contains(&ag_val) {
             panic!("Incorrect modified arifmetic-geometric argument. Check --help!");
         }
         let precision = count_decimal_places(ag_val);

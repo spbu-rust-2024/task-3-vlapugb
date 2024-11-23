@@ -1,7 +1,7 @@
 use super::arifmetic_mean::arifmetic_mean;
 
 pub fn standart_deviation(vec: &Vec<f64>) -> f64 {
-    if vec.len() == 0 {
+    if vec.is_empty() {
         panic!("Can't solve standart deviation!");
     }
     let a_mean = arifmetic_mean(vec);
@@ -12,5 +12,5 @@ pub fn standart_deviation(vec: &Vec<f64>) -> f64 {
         / vec.len() as f64)
         .sqrt();
 
-    return deviation;
+    deviation
 }

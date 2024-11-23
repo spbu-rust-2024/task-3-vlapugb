@@ -16,13 +16,13 @@ pub fn modified_arifmetic_geometric_mean(vec: &Vec<f64>, eps: &f64) -> [f64; 3] 
     if *eps > 1.0 || *eps < 0.0 {
         panic!("Can't solve modified arifmetic-geometric mean!");
     }
-    let a_mean = arifmetic_mean(&vec);
-    let g_mean = geometric_mean(&vec);
+    let a_mean = arifmetic_mean(vec);
+    let g_mean = geometric_mean(vec);
     let z_mean = 0.0;
     let new_a;
     let new_g;
     let new_z;
     let i: i32 = 0;
     [new_a, new_g, new_z] = recursive_ag1(eps, &a_mean, &g_mean, &z_mean, i);
-    return [new_a, new_g, new_z];
+    [new_a, new_g, new_z]
 }

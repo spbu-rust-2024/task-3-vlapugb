@@ -4,7 +4,7 @@ pub fn geometric_mean(vec: &Vec<f64>) -> f64 {
         panic!("Value under sqrt is negative. Can't solve it!")
     }
     let product: f64 = vec.iter().product();
-    return f64::powf(product, 1.0 / vec.len() as f64);
+    f64::powf(product, 1.0 / vec.len() as f64)
 }
 
 #[cfg(test)]
